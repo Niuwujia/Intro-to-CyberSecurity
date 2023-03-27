@@ -5,3 +5,4 @@ Research/Report/latex/*.log
 Research/Report/latex/*.xml
 Research/Report/latex/*.gz
 Research/Report/latex/*.toc
+.vscode
