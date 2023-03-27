@@ -1,7 +1,7 @@
-latex/*.aux
-latex/*.bcf
-latex/*.out
-latex/*.log
-latex/*.xml
-latex/*.gz
-latex/*.toc
+Research/Report/latex/*.aux
+Research/Report/latex/*.bcf
+Research/Report/latex/*.out
+Research/Report/latex/*.log
+Research/Report/latex/*.xml
+Research/Report/latex/*.gz
+Research/Report/latex/*.toc
