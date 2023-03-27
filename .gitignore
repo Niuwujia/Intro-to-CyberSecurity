@@ -1,0 +1,7 @@
+latex/*.aux
+latex/*.bcf
+latex/*.out
+latex/*.log
+latex/*.xml
+latex/*.gz
+latex/*.toc
