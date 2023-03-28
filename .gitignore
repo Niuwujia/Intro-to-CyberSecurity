@@ -1,8 +1,10 @@
-Research/Report/latex/*.aux
-Research/Report/latex/*.bcf
-Research/Report/latex/*.out
-Research/Report/latex/*.log
-Research/Report/latex/*.xml
-Research/Report/latex/*.gz
-Research/Report/latex/*.toc
+*.aux
+*.bcf
+*.out
+*.log
+*.xml
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
 .vscode
