@@ -32,6 +32,17 @@
 - 哈希函数的抗碰撞性，即任何一个攻击者不能在多项式时间内找到 $x_1$ 和 $x_2$ 使得 $x_1\ne x_2$, 且 $H(x_1)=H(x_2)$。
 
 ## T4
+以*.ustc.edu.cn举例
+可查看其有效期:
+![](image/t4_2.png)
+将其导出为文件:
+![](image/t4_1.png)
+![](image/t4_3.png)
+使用`certutil -dump`查看:
+![](image/t4_4.png)
+![](image/t4_5.png)
+SHA1和SHA256与浏览器查看一致:
+![](image/t4_6.png)
 1. https://ustc.edu.cn/
    1. (root) USERTrust RSA Certification Authority
        - expired: 2038/1/19 GMT+8 07:59:59
