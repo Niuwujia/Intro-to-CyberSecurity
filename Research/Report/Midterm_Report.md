@@ -6,6 +6,7 @@
 陈&nbsp;&nbsp;&nbsp;昊 PB20051077
 
 ## Abstract
+经过一段时间对隐私集合求交（PSI）的学习，我们已经基本掌握了PSI中的问题模型和现有的几种协议。并且我们对比了这些协议的优缺点。另外，我们也学习了PSI中的效率与授权问题，对于Practical Private Set Intersection Protocols with Linear Complexity一文中的高效PSI算法，我们准备研究将其拓展为authorized PSI(APSI)算法。
 
 ## Progress
 > Research Problems
@@ -23,14 +24,16 @@
 |       基于 OT       |   Random GBF-based   |                   $O(N)$                   |  $O(N)$      双向通信两次以上   |                           设计了高效数据结构，极大提高了空间效率和查询时间                           |         有一定的误识别率；集合元素修改较困难         |              可以借助GBF快速判断元素是否在集合中              |
 |      基于哈希       | Cuckoo hashing-based |              $O(N\log\log N)$              |  $O(N)$       双向通信两次以上  |                                      可以减少必须计算的比较次数                                      |                  存在哈希失败的概率                  | 可以将Bucket Sorting、Rabin Karp 算法的思想用在提升比较效率上 |
 |       基于 OT       |      BaRK-OPRF       |                  $O(N^2)$                  |     $O(N)$ 双向通信两次以上     | 极大优化OT过程：使用 $k$ 次 1-out-of-2 OT 实现实际上 $m(>>k)$ 次 1-out-of-2 OT，并且没有消息长度限制 |         接收方求交集的开销较大，成为性能瓶颈         |                 可以将编码和加密同时应用于OT                  |
-|       基于FHE       |       FHE-PSI        |                  $O(N^2)$                  | $O(min\{N_x,N_y)\}$双向通信一次 |                                      利用FHE大幅度降低通信开销                                       |            由于需要FHE，本地计算开销巨大             |              可以作为Problem 2的解决方案的出发点              |
+|       基于FHE       |       FHE-PSI        |                  $O(N^2)$                  | $O(min\{N_x,N_y\})$双向通信一次 |                                      利用FHE大幅度降低通信开销                                       |            由于需要FHE，本地计算开销巨大             |              可以作为Problem 2的解决方案的出发点              |
 
 
 
 ## Challenges and Obstacles
 1. 对于我们在 Proposal 中 Methodologies 部分提到的几种理论上或许可行的 PSI 方法，理论上是否存在安全隐患是一个很难判断的问题。我们将从现有的其他协议下的攻击方法出发，尝试寻找攻击的角度。
-2. ......
+2. 目前没有便于我们测试PSI算法的线上平台，我们或许需要自己写网络应用。
 
 ## Left Workloads
 1. 对于我们在 Proposal 中 Methodologies 部分提到的几种理论上或许可行的 PSI 方法，目前还没有进行进一步的思考与完善。我们将在后续工作中尽可能地提出进一步的思路，甚至给出初始协议和简单的安全性说明。
-2. 经过前期调研，我们打算在非对称 PSI 场景下做一些实验上的工作。我们准备先复现......
+2. 经过前期调研，我们打算在非对称 PSI 场景下做一些实验上的工作。我们准备先复现Practical Private Set Intersection Protocols with Linear Complexity一文中的4种PSI算法（其中2种是APSI）。论文最后运用数据预处理等技术给出了一个高效的PSI算法，我们准备进行研究将其拓展为APSI版本。这也是作者提及的Drawback之一。
+
+    > Drawbacks: although very efficient, this PSI protocol has some issues. First, it is unclear how to convert it into an APSI version.
