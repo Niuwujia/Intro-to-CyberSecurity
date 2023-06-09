@@ -1,0 +1,134 @@
+\section{Main idea}
+我们希望在Blind RSA-based PSI Protocol \cite{de2010practical}的基础上，给Client集合中的元素加上签名，以防止Client通过伪造数据的方法得到Server集合中的数据。
+
+问题的主要难点在于Blind RSA-based PSI Protocal中已经存在了一组RSA公私钥$(n,e,d)$，而如果让CA给Client集合中的元素签名，也需要一组RSA公私钥。这两组$n$是不能相同的，因为$d$的生成依赖于$n$的素因子$p,q$。如果CA和Server使用相同的$n$，那么由于$n$有且仅有两个素因子，为了生成$d$，CA和Server都需要知道$(p,q)$。这将导致双方可以轻易地解密对方加密的信息，带来安全问题。因此这两组RSA公私钥中的$n$不能相同，不妨设CA发布的公钥是$n_1,e_1$，私钥是$d_1$，Server发布的公钥是$n_2,e_2$，私钥是$d_2$。由此引发新的问题：原始协议是在$\mathbb{Z}_n$中计算的，现在存在不同的$n_1,n_2$，应该在何种代数结构下计算呢？
+
+针对上面的问题，我们主要的想法是利用引理\ref{lem:mod}。因此，为了在协议过程中同时保留在$\mathbb{Z}_{n_1}$和$\mathbb{Z}_{n_2}$中的可计算性，我们不妨在$\mathbb{Z}_N$中计算，其中$N=[n_1,n_2]$。由于$n_1,n_2$各自都只有两个很大的素因子：$p_1,q_1$和$p_2,q_2$，因此可以认为$(n_1,n_2)=1$，从而$N=[n_1,n_2]=n_1n_2$。至此我们给出我们初始版本的协议。
+
+\section{Blind RSA-based APSI Protocol (Version 0.1)}
+
+\label{protocol:0.1}
+\createprocedureblock{procb}{center , boxed}{}{}{linenumbering}
+\procb{\textbf{Blind RSA-based APSI Protocol (Version 0.1)}\\
+\text{- Common intput: } $n$_1,e_1,n_2,e_2,H(),H'(),N=n_1n_2\\
+\text{- CA's intput: }d_1\\
+\text{- Client's intput: }\mathcal{C}=\{hc_1,hc_2,\dots,hc_v\},\text{ where: }hc_i=H(c_i)\\
+\text{- Server's intput: }d_2,\mathcal{S}=\{hs_1,hs_2,\dots,hs_w\},\text{ where: }hs_j=H(s_j)
+}{
+\text{Server: Calculate }\forall j,K_{s:j}=hs_j^{d_2}\bmod{N}\\
+\text{Client: Send } \{hc_1,\dots,hc_v\} \text{ to CA }\\
+\text{CA: Sign } \{hc_1,\dots,hc_v\}: \forall i,\sigma_i=(hc_i)^{d_1}\bmod{N}\\
+\text{CA: Send }\{\sigma_1,\sigma_2,\dots,\sigma_v\}\text{ to Client}\\
+\text{Client: }\forall i,R_{c:i}\leftarrow\mathbb{Z}_N^*, x_i=\sigma_i R_{c:i}^{e_1}\bmod{N}, y_i=\sigma_iR_{c:i}^{e_2}\bmod{N}, z_i=\sigma_iR_{c:i}^{e_1e_2}\bmod{N}\\
+\text{Client: Send }x_1,x_2,\dots,z_v,z_1,z_2,\dots,z_v\text{ to CA, send }y_1,y_2,\dots,y_v\text{ to server}\\
+\text{CA: Calculate }x_i'=x_i^{d_1}\bmod{N},z_i'=z_i^{d_1}\bmod{N},\forall i\\
+\text{CA: Send }x_1',x_2',\dots,x_v',z_1',z_2',\dots,z_v'\text{ to client}\\
+\text{Server: Calculate }y_i'=y_i^{d_2}\bmod{N},\forall i  \text{ and }t_j'=H'(K_{s:j}^{(1-e_1)}\bmod{n_1}),\forall j\\
+\text{Server: Send }y_1',y_2',\dots,y_v',t_1',t_2',\dots,t_w'\text{ to client}\\
+\text{Client: Send }z_1',z_2',\dots,z_v'\text{ to server}\\
+\text{Server: Calculate }z_i''=z_i'^{d_2}\bmod{N},\forall i\\
+\text{Server: Send }z_1'',z_2'',\dots,z_v''\text{ to client}\\
+\text{Client: Calculate }t_i=H'((z_i''x_i'^{-1}y_i'^{-1}R_{c:i}^{-1})^{e_1^2}hc_i\bmod{n_1}),\forall i\\
+\text{Client OUTPUT:}\{t_1,t_2,\dots,t_v\}\cap\{t_1',t_2',\dots,t_w'\}}
+
+\section{Analysis about our protocol 0.1}
+在证明该协议的正确性之前，需要先证明两个引理：
+\begin{lemma}\label{lem:mod}
+若$m|n$，则$x\equiv y\bmod{n}\implies x\equiv y\bmod{m}$
+\end{lemma}
+\begin{lemma}\label{lem:euler}
+$\forall x\in \mathbb{Z}_N,x^{e_1e_2d_1d_2-e_1d_1-e_2d_2}\equiv x\mod{N}$，其中$e_1,e_2,d_1,d_2,N$定义如前面所述。
+\end{lemma}
+\begin{proof}
+由于$N=n_1n_2$，其中$n_1=p_1q_1,n_2=p_2q_2$且$p_1,q_1,p_2,q_2$为两两不同的素数，因此$\varphi(N)=(p_1-1)(p_2-1)(q_1-1)(q_2-1),\varphi(n_1)=(p_1-1)(q_1-1),\varphi(n_2)=(p_2-1)(q_2-1)$. 由RSA中私钥的生成过程，有$e_1d_1\equiv 1\bmod{\varphi(n_1)},e_2d_2\equiv 1\bmod{\varphi(n_2)}$. 从而$(e_1d_1-1)(e_2d_2-1)\equiv 0\bmod{\varphi(N)}$，即$e_1e_2d_1d_2-e_1d_1-e_2d_2\equiv 1\bmod{\varphi(N)}$. 由Euler定理可得$x^{e_1e_2d_1d_2-e_1d_1-e_2d_2}\equiv x^{k\varphi(N)+1}\equiv x\bmod{N}$.
+\end{proof}
+
+该协议的正确性见如下定理：
+\begin{theorem}\label{thm:Protocol0.1}
+执行完\ref{protocol:0.1}协议后，Client能够得到自己集合和Server集合的交集元素。
+\end{theorem}
+\begin{proof}
+执行完协议的前5步之后，Client方拥有$x_i=\sigma_i R_{c:i}^{e_1}\bmod{N}, y_i=\sigma_iR_{c:i}^{e_2}\bmod{N}, z_i=\sigma_iR_{c:i}^{e_1e_2}\bmod{N}$；执行完协议的前10步之后，Client方拥有$x_i'=\sigma_i^{d_1} R_{c:i}^{e_1d_1}\bmod{N},y_i'=\sigma_i^{d_2} R_{c:i}^{e_1d_2}\bmod{N}, z_i'=\sigma_i^{d_1}R_{c:i}^{e_1e_2d_1}\bmod{N}, K_{s:j}=hs_j^{d_2}\bmod{N}$；执行完协议的前13步之后，Client方拥有$x_i'=\sigma_i^{d_1} R_{c:i}^{e_1d_1}\bmod{N},y_i'=\sigma_i^{d_2} R_{c:i}^{e_1d_2}\bmod{N},z_i''=\sigma_i^{d_1d_2}R_{c:i}^{e_1e_2d_1d_2}\bmod{N}, K_{s:j}=hs_j^{d_2}\bmod{N}$. 因此，协议第14步中Client的计算$t_i=(z_i''x_i'^{-1}y_i'^{-1})^{e_1^2}hc_i=(\sigma_i^{d_1d_2-d_1-d_2}R_{c:i}^{e_1e_2d_1d_2-e_1d_1-e_2d_2-1})^{e_1^2}hc_i=hc_i^{e_1^2d_1^2d_2-e_1^2d_1^2-e_1^2d_1d_2+1}\bmod{N}=hc_i^{d_2(1-e_1)}\bmod{n_1}$，将此结果与$K_{s:j}^{(1-e_1)}=hs_j^{d_2(1-e_1)}\bmod{n_1}$对比即可求出交集元素。
+\end{proof}
+
+然而这个协议是不安全的。具体地，我们发现了如下攻击方法：
+\begin{proposition}\label{pro:attack}
+Client可以通过伪造元素来欺骗Server从而获得Server集合中的一些数据。具体地，Client伪造数据$hc_{fake}$，将其混入$\sigma_1,\sigma_2,\dots,\sigma_v$，然后正常执行协议的5-13步，在14步中$t_{fake}$的计算改为$t_{fake}=H'((z_{fake}''x_{fake}'^{-1}y_{fake}'^{-1}R_{c:fake}^{-1})^{e_1}hc_{fake}\bmod{n_1})$即可。
+\end{proposition}
+\begin{remark}
+仔细分析协议的流程可以发现，造成上述攻击方法可行的原因在于最终的签名没有由Server验证，而是Client自己在最后解除了签名。解决此问题的思路主要有两种：
+\begin{enumerate}
+\item 在协议的最终验证阶段，Server想办法让Client无法直接解除自己集合元素的签名。
+\item 在协议的过程中，加入Server验证Client集合元素签名的过程。
+\end{enumerate}
+基于这两个不同的出发点，我们提出了协议1.0版本~\ref{protocol:1.0}与协议2.0版本~\ref{protocol:2.0}
+\end{remark}
+
+\newpage
+
+\section{Blind RSA-based APSI Protocol (Version 1.0)}
+\label{protocol:1.0}
+\createprocedureblock{procb}{center , boxed}{}{}{linenumbering}
+\procb{\textbf{Blind RSA-based APSI Protocol (Version 1.0)}\\
+\text{- Common intput: } $n$_1,e_1,n_2,e_2,H(),H'(),N=n_1n_2\\
+\text{- CA's intput: }d_1\\
+\text{- Client's intput: }\mathcal{C}=\{hc_1,hc_2,\dots,hc_v\},\text{ where: }hc_i=H(c_i)\\
+\text{- Server's intput: }d_2,\mathcal{S}=\{hs_1,hs_2,\dots,hs_w\},\text{ where: }hs_j=H(s_j)
+}{
+\text{Server: Calculate }\forall j,K_{s:j}=hs_j^{d_2}\bmod{N}\\
+\text{Client: Send } \{hc_1,\dots,hc_v\} \text{ to CA }\\
+\text{CA: Sign } \{hc_1,\dots,hc_v\}: \forall i,\sigma_i=(hc_i)^{d_1}\bmod{N}\\
+\text{CA: Send }\{\sigma_1,\sigma_2,\dots,\sigma_v\}\text{ to Client}\\
+\text{Client: }\forall i,R_{c:i}\leftarrow\mathbb{Z}_N^*, x_i=\sigma_i R_{c:i}^{e_1}\bmod{N}, y_i=\sigma_iR_{c:i}^{e_2}\bmod{N}, z_i=\sigma_iR_{c:i}^{e_1e_2}\bmod{N}\\
+\text{Client: Send }x_1,x_2,\dots,z_v,z_1,z_2,\dots,z_v\text{ to CA, send }y_1,y_2,\dots,y_v\text{ to server}\\
+\text{CA: Calculate }x_i'=x_i^{d_1}\bmod{N},z_i'=z_i^{d_1}\bmod{N},\forall i\\
+\text{CA: Send }x_1',x_2',\dots,x_v',z_1',z_2',\dots,z_v'\text{ to client}\\
+\text{Server: Calculate }y_i'=y_i^{d_2}\bmod{N},\forall i  \text{ and }t_{i:j}'=H'(y_i'^{e_1^2}K_{s:j}^{(1-e_1)}\bmod{n_1}),\forall j\\
+\text{Server: Send }t_{1:1}',t_{1:2}',\dots,t_{v:w}'\text{ to client}\\
+\text{Client: Send }z_1',z_2',\dots,z_v'\text{ to server}\\
+\text{Server: Calculate }z_i''=z_i'^{d_2}\bmod{N},\forall i\\
+\text{Server: Send }z_1'',z_2'',\dots,z_v''\text{ to client}\\
+\text{Client: Calculate }t_i=H'((z_i''x_i'^{-1}R_{c:i}^{-1})^{e_1^2}hc_i\bmod{n_1}),\forall i\\
+\text{Client OUTPUT:}\{t_1,t_2,\dots,t_v\}\cap\{t_{1:1}',t_{1:2}',\dots,t_{v:w}'\}}
+
+\section{Analysis about our protocol 1.0}
+\noindent\textbf{Correctness}~~~1.0版本协议的原理和0.1版本的原理完全相同，因此其正确性可由0.1版本协议的正确性\ref{thm:Protocol0.1}保证。
+
+\noindent\textbf{Security}~~~相比于协议0.1版本\ref{protocol:0.1}，这一版本的协议主要在第9步和第14步做了修改。这种修改将使Client无法通过之前的方法\ref{pro:attack}进行攻击，因为$y_i$相关的计算是由Server完成的，Client在最终验证阶段无法直接解除自己集合元素的签名。因此，协议1.0暂时是安全的。
+
+\noindent\textbf{Efficiency}~~~从协议1.0的第9步可以看出，为了保证安全性，由Server完成$y_i$相关的计算，需要和自己集合的元素两两组合，这使协议的通信复杂度由$\O(v+w)$升到了$O(vw)$. 此外，这一版本的协议1-5步可以离线完成，从而提高协议的效率。
+
+
+
+这一版本的协议可以对标De Cristofaro et al.,2010中APSI Protocol derived from RSA-PPIT\cite{de2010practical}。在他们的工作中，进一步采用了一些计算上的技巧将通信复杂度从$O(vw)$降到了$O(v+w)$，我们也尝试将相似的方法用在我们的协议，但是并没有成功。
+
+\newpage
+
+\section{Blind RSA-based APSI Protocol (Version 2.0)}
+\label{protocol:2.0}
+\createprocedureblock{procb}{center , boxed}{}{}{linenumbering}
+\procb{\textbf{Blind RSA-based APSI Protocol}\\
+\text{- Common intput: } $n$_1,e_1,n_2,e_2,H(),H'(),N=n_1n_2\\
+\text{- CA's intput: }d_1\\
+\text{- Client's intput: }\mathcal{C}=\{hc_1,hc_2,\dots,hc_v\},\text{ where: }hc_i=H(c_i)\\
+\text{- Server's intput: }d_2,\mathcal{S}=\{hs_1,hs_2,\dots,hs_w\},\text{ where: }hs_j=H(s_j)
+}{
+\text{Client: Calculate }\forall i,x_i = hc_i R_{c:i}^{e_1} \bmod{N}, y_i = hc_i R_{c:i}^{e_2} \bmod{N},z_i = hc_i R_{c:i}^{e_1e_2} \bmod{N} \\
+\text{Client: Send }hc_1,hc_2,\dots, hc_v, R_{c:1},R_{c:2},\dots,R_{c:v} \text{ to CA}\\
+\text{CA: Calculate }\forall i,x_i' = x_i^{d_1} \bmod{N} ,y_i' = y_i^{d_1} \bmod{N},z_i' = z_i^{d_1} \bmod{N} \text{ then send all to Client}\\
+\text{Client: Send }z_1,z_2,\dots,z_v,z_1',z_2',\dots,z_v',y_1,y_2,\dots,y_v,y_1',y_2',\dots,y_v',\text{ to Server}\\
+\text{Server: Verify whether }\forall i,z_i'^{e_1} = z_i \bmod{n_1} \text{ and } y_i'^{e_1} = y_i \bmod{n_1} \\
+\text{Server: If validation is ok: Calculate }\forall i, z_i'' = z_i'^{d_2} \bmod{N}, y_i'' = y_i^{d_2} \bmod{N}, \forall j, t_j' = H'(hs_j^{d_2(1 - e_1)} \bmod{n_1}) \text{ to Client}\\ 
+\text{Server: Send }z_1'',z_2'',\dots,z_v'',y_1'',y_2'',\dots,y_v'',t_1',t_2',\dots,t_w'\text{ to Client}\\ 
+\text{Client: Calculate }\forall i, t_i = H'((z_i'' x_i'^{-1} y_i''^{-1} R_{c:i})^{e_1} hc_i\bmod{n_1})\\
+\text{Client OUTPUT: }\{t_1,t_2,\dots,t_v\}\cap\{t_1',t_2',\dots,t_w'\}}
+
+\section{Analysis about our protocol 2.0}
+\noindent\textbf{Correctness}~~~2.0版本协议的原理仍然是基于0.1版本的协议，因此其正确性可由0.1版本协议的正确性\ref{thm:Protocol0.1}保证。
+
+\noindent\textbf{Security}~~~相比于协议0.1版本\ref{protocol:0.1}，这一版本的协议在第5步加入了Server对Client发送过来的全部数据的签名验证。由于Client没有CA的私钥，因此无法自己同时生成$hc_{fake}$和$hc_{fake}^{d_1}$，故Client不能通过之前的方法\ref{pro:attack}进行攻击。因此，协议2.0暂时是安全的。
+
+\noindent\textbf{Efficiency}~~~从协议2.0的具体过程可以看出，通信复杂度是$\O(v+w)$. 此外，这一版本的协议中，Client只需要和Server、CA各进行一轮通信即可完成集合求交的任务。
+
+由上面的分析可知这一版本的协议有着很低的通信复杂度，并且也可以保证安全性与正确性。但是由于Client要发给Server的所有数据（不仅仅是Client集合中的元素）都需要CA进行签名，因此增加了CA的负担。
+

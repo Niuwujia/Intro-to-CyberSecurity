@@ -1,0 +1,81 @@
+\documentclass[lang=cn,10pt]{elegantbook}
+
+\title{Private Set Intersection}
+\subtitle{安全多方计算应用: 隐私集合求交}
+
+\author{牛午甲 \& 潘云石 \& 石磊鑫 \& 孙霄鹍 \& 陈昊}
+\institute{USTC}
+\date{\today}
+\version{1.0}
+% \bioinfo{}{}
+
+\extrainfo{站在巨人的肩膀上。}
+
+\setcounter{tocdepth}{3}
+
+\logo{file.png}
+\cover{rrreflection.jpg}
+
+% 本文档命令
+\usepackage{amsmath}
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+% Cryptocode package reference
+\usepackage [
+    n, % or lambda 
+    advantage,
+    operators,
+    sets,
+    adversary,
+    landau,
+    probability,
+    notions,
+    logic,
+    ff, 
+    mm,
+    primitives,
+    events,
+    complexity,
+    oracles,
+    asymptotics,
+    keys
+]{cryptocode}
+% \usepackage[backend=biber]{biblatex}
+
+
+% 修改标题页的橙色带
+% \definecolor{customcolor}{RGB}{32,178,170}
+% \colorlet{coverlinecolor}{customcolor}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Abstract}
+\input{Abstract}
+
+\chapter{Introduction}
+\input{Introduction}
+
+\chapter{Background and Related Work}
+\input{Background and Related Work}
+
+\chapter{Methodology}\label{chap:method}
+\input{Methodology}
+
+\chapter{Experiments and Results}
+\input{Experiments and Results}
+
+\chapter{Discussion}
+\input{Discussion}
+
+
+
+
+\printbibliography[title=\ebibname]
+\end{document}
